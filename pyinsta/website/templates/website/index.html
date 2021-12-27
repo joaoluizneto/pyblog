@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pyinsta</title>
+    <link rel="stylesheet" href="/website/media/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <!-- BARRA DE NAVEGACAO -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="/website/media/img/029-instagram.png" width="28" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+                My Blog
+            </a>
+      
+            <a class="navbar-item">
+                Explore
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Settings
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Change password
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </nav>
+      
+    <section class="section">
+
+      <div class="columns is-mobile is-centered">
+          <div class="column is-half">
+            <br>
+            {% if latest_post_list %}
+            {% for post in latest_post_list %}
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/website{{post.blog.account.profile.url}}"alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="/website{{post.image.url}}" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">{{post.blog.account.person.name}}</p>
+                    <p class="subtitle is-6">@{{post.blog.account.person.user_name}}</p>
+                  </div>
+                </div>
+                <div class="content">
+                  {{post.text}} <a>@{{post.blog.account.person.user_name}}</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  {{post.pub_date}}
+                </div>
+              </div>
+            </div>
+            <br>
+            {% endfor %}
+            {% else %}
+              <p>No posts.</p>
+            {% endif %}
+
+          </div>
+      </div>
+
+    </section>
+  </body>
+</html>
