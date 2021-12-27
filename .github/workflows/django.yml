@@ -24,10 +24,10 @@ jobs:
     - name: Install Dependencies
       run: |
         pwd
-        cd pyinsta
         source envs/pyinsta/bin/activate
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
       run: |
+        cd pyinsta
         python manage.py test
