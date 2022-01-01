@@ -10,9 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    matrix:
-      python-version: [3.9]
+    with:
+      matrix:
+        python-version: [3.9]
 
     steps:
     - uses: actions/checkout@v2
