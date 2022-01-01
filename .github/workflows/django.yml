@@ -36,5 +36,4 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          args:  '-f'
           script: ./install_pyinsta.sh;tmux new-session -d -s pyinsta ./run_pyinsta.sh;
