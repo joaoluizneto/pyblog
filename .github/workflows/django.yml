@@ -28,8 +28,8 @@ jobs:
     - name: Run Tests
       run: |
         cd pyinsta
-        python manage.py test
-
+        python manage.py test  
+  deploy:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
@@ -37,4 +37,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        script: whoami
+        script: ./install_pyinsta.sh
