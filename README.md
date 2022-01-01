@@ -1,2 +1,2 @@
 # pyinsta
-Instagram clone using python
+Webserver for personal blogs
