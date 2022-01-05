@@ -1,10 +1,10 @@
 # Pyinsta
 
-Documentando o desenvolvimento de um website de blogs.
+Esse projeto tem como objetivo documentar o desenvolvimento de um website de blogs.
 
 Para um melhor entendimento de como o framework django funciona:
 
-![Untitled](Pyinsta%20fb44be6ad67a4d3eb3b34a350c2b20ea/Untitled.png)
+![Untitled](README/Untitled.png)
 
 1. Criando projeto (com servidor web):
     
@@ -166,5 +166,5 @@ Para um melhor entendimento de como o framework django funciona:
 Basta ir ao terminal e executar o seguinte:
 
 ```python
-blablala
+git clone 
 ```
