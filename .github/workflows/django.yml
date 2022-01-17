@@ -37,4 +37,4 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: ./install_pyinsta.sh;tmux new-session -d -s pyinsta ./run_pyinsta.sh;
+          script: ./install_pyblog.sh;tmux new-session -d -s pyblog ./run_pyblog.sh;

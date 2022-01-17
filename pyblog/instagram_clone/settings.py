@@ -25,7 +25,7 @@ SECRET_KEY = 'wkpwid&=r9wp2nl9jyr_%66zjgq4fku9*%g%^%-4iijga+t2lg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
