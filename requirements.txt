@@ -1,7 +1,6 @@
 asgiref
 Django
 Pillow
-pkg-resources
 pytz
 sqlparse
 celery
