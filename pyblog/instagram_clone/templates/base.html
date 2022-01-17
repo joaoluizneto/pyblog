@@ -14,7 +14,7 @@
   </head>
   <body>
 
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{% url 'index' %}">
       <img src="{% static 'img/logo_pyblog.png' %}" width="40" height="64">
@@ -91,4 +91,5 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{% static 'js/init.js' %}"></script>
   <script src="{% static 'js/slider.js' %}"></script>
+  <script src="{% static 'js/responsive_navbar.js' %}"></script>
 </html>
