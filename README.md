@@ -1,4 +1,4 @@
-# Pyinsta
+# PyBlog
 
 Esse projeto tem como objetivo documentar o desenvolvimento de um website de blogs.
 
