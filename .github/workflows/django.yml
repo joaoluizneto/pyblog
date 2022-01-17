@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        cd pyinsta
+        cd pyblog
         python manage.py test  
 
   deploy:
