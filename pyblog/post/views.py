@@ -14,7 +14,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from authy.models import Profile
 
-
+from django.shortcuts import render
+from django.core.paginator import Paginator
 
 # Create your views here.
 @login_required
@@ -26,13 +27,40 @@ def index(request):
 
 	for post in posts:
 		group_ids.append(post.post_id)
-		
+	
+	#post_items_list = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
+	post_items_list = Post.objects.all().order_by('-posted')
+	post_items=[]
+	for post in post_items_list:
+		profile = Profile.objects.get(user=post.user)
+		post_items.append((post, profile))
+	
+	paginator = Paginator(post_items, 3) # Show 3 posts per page.
+
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
+	context = {
+		#'post_items': post_items,
+		'page_obj': page_obj,
+	}
+	return render(request, 'index.html', context)
+
+@login_required
+def feed(request):
+	user = request.user
+	posts = Stream.objects.filter(user=user)
+
+	group_ids = []
+
+	for post in posts:
+		group_ids.append(post.post_id)
+	
 	post_items_list = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
 	post_items=[]
 	for post in post_items_list:
 		profile = Profile.objects.get(user=post.user)
 		post_items.append((post, profile))
-
+	
 	template = loader.get_template('index.html')
 
 	context = {
@@ -40,6 +68,7 @@ def index(request):
 	}
 
 	return HttpResponse(template.render(context, request))
+
 
 def PostDetails(request, post_id):
 	post = get_object_or_404(Post, id=post_id)
