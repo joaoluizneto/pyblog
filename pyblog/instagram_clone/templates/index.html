@@ -16,7 +16,7 @@
     <div class="card ">
       <div class="card-image">
 
-        {% if post_item.content.first.file.name|slice:"-3:" == 'jpg' or post_item.content.first.file.name|slice:"-3:" == 'png' %}
+        {% if post_item.content.first.file.name|slice:"-3:" != 'mp4' %}
         <figure class="image is-5by3">
           <a href="{{ post_item.get_absolute_url }}">
             <img src="{{ post_item.content.first.file.url }}" alt="Placeholder image">
