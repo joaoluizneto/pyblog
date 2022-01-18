@@ -152,7 +152,7 @@
       <div class="column is-full-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd">
         <div class="box">
 
-          {% if post.content.first.file.name|slice:"-3:" == 'jpg' or post_item.content.first.file.name|slice:"-3:" == 'png' %}
+          {% if post.content.first.file.name|slice:"-3:" != 'mp4' %}
           <figure class="image is-4by3">
             <a href="{{ post.get_absolute_url }}">
               <img src="{{ post.content.first.file.url }}" alt="Placeholder image">
