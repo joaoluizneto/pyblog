@@ -1,3 +1,4 @@
-db.sqlite3
-*.jpg
-*.png
+**.sqlite3
+**.jpg
+**.jpeg
+**.pngs
