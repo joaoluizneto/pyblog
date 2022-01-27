@@ -17,6 +17,13 @@ from django.core.paginator import Paginator
 from django.urls import resolve
 
 # Create your views here.
+def redirect_post(request):
+	if request.user.is_authenticated:
+		return redirect("index")
+	else:
+		return redirect("login")
+	
+
 def UserProfile(request, username):
 	user = get_object_or_404(User, username=username)
 	profile = Profile.objects.get(user=user)
