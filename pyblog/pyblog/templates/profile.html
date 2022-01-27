@@ -149,9 +149,32 @@
   </div>
   </div>
 
+  <div class="pagination is-centered">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a class="pagination-previous" href="?page=1">&laquo; first</a>
+            <a class="pagination-previous" href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+  
+        {% if posts.has_next %}
+            <a class="pagination-next" href="?page={{ posts.next_page_number }}">next</a>
+            <a class="pagination-next" href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+
+    <br>
+
+    <span class="current">
+      Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+    </span>
 
 
   </div>
+
+  </div>
+
+
+
 </section>
 
 

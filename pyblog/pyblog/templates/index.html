@@ -34,7 +34,7 @@
       <div class="card-content">
         {% if post_item.posttitle%}
         <p class="title">
-          “{{ post_item.posttitle }}”
+          {{ post_item.posttitle }}
         </p>
         {% else %}
         <p class="title">
@@ -93,22 +93,26 @@
   </div>
 </div>
 
-<div class="pagination">
+<div class="pagination is-centered">
   <span class="step-links">
       {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          <a class="pagination-previous" href="?page=1">&laquo; first</a>
+          <a class="pagination-previous" href="?page={{ page_obj.previous_page_number }}">previous</a>
       {% endif %}
-
-      <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-      </span>
 
       {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          <a class="pagination-next" href="?page={{ page_obj.next_page_number }}">next</a>
+          <a class="pagination-next" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
       {% endif %}
   </span>
+
+  <br>
+
+  <span class="current">
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+  </span>
+
+
 </div>
 
 {% endblock %}

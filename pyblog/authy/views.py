@@ -37,7 +37,7 @@ def UserProfile(request, username):
 	follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
 
 	#Pagination
-	paginator = Paginator(posts, 8)
+	paginator = Paginator(posts, 3)
 	page_number = request.GET.get('page')
 	posts_paginator = paginator.get_page(page_number)
 
