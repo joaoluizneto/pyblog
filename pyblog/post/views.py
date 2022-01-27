@@ -121,8 +121,9 @@ def NewPost(request):
 	if request.method == 'POST':
 		form = NewPostForm(request.POST, request.FILES)
 		if form.is_valid():
+			posttitle = form.cleaned_data.get('posttitle')
 			files = request.FILES.getlist('content')
-			caption = form.cleaned_data.get('caption')
+			posttext = form.cleaned_data.get('posttext')
 			tags_form = form.cleaned_data.get('tags')
 
 			tags_list = list(tags_form.split(','))
@@ -136,7 +137,8 @@ def NewPost(request):
 				file_instance.save()
 				files_objs.append(file_instance)
 
-			p, created = Post.objects.get_or_create(caption=caption, user=user)
+			p, created = Post.objects.get_or_create(posttext=posttext, posttitle=posttitle, user=user)
+			#p.posttitle.set(posttitle)
 			p.tags.set(tags_objs)
 			p.content.set(files_objs)
 			p.save()

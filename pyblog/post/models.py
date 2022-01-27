@@ -42,7 +42,8 @@ class PostFileContent(models.Model):
 class Post(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	content =  models.ManyToManyField(PostFileContent, related_name='contents')
-	caption = models.TextField(max_length=1500, verbose_name='Caption')
+	posttitle = models.TextField(max_length=100, verbose_name='posttitle')
+	posttext = models.TextField(max_length=10000, verbose_name='posttext')
 	posted = models.DateTimeField(auto_now_add=True)
 	tags = models.ManyToManyField(Tag, related_name='tags')
 	user = models.ForeignKey(User, on_delete=models.CASCADE)

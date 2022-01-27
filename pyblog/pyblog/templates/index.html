@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+
+
+<br>
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-full-mobile is-three-quarters-tablet is-three-quarters-desktop is-three-quarters-widescreen is-three-quarters-fullhd">
+
+    {% for post_item,profile in page_obj %}
+    <div class="card ">
+      <div class="card-image">
+
+        {% if post_item.content.first.file.name|slice:"-3:" != 'mp4' %}
+        <figure class="image is-5by3">
+          <a href="{{ post_item.get_absolute_url }}">
+            <img src="{{ post_item.content.first.file.url }}" alt="Placeholder image">
+          </a>
+        </figure>
+        {% else %}
+        <a href="{{ post_item.get_absolute_url }}">
+          <video width="1080" controls="controls" preload="metadata">
+            <source src="{{ post_item.content.first.file.url }}#t=0.5" type="video/mp4">
+          </video>
+        </a>
+        {% endif %}
+
+      </div>
+      <div class="card-content">
+        {% if post_item.posttitle%}
+        <p class="title">
+          “{{ post_item.posttitle }}”
+        </p>
+        {% else %}
+        <p class="title">
+          “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+        </p>
+        {% endif %}
+        <div class="content">
+          <div style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ post_item.posttext }}</div>  
+        </div>
+        <hr>
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              {% if profile.picture %}
+              <img src="{{ profile.picture.url }}" alt="Placeholder image">
+              {% else %}
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+              {% endif %}
+            </figure>
+          </div>
+          <div class="media-content">
+            {% if profile.first_name %}
+            <a href="{% url 'profile' post_item.user %}">
+              <p class="title is-4">{{ profile.first_name }} {{ profile.last_name }}</p>
+            </a>
+            {% else %}
+            <a href="{% url 'profile' post_item.user %}">
+              <p class="title is-4">Unknown</p>
+            </a>
+            {% endif %}
+
+            <p class="subtitle is-6">@{{ profile.user.username }}</p>
+
+            <p>{% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>{% endfor %}</p>
+            <br>
+            <strong><small>{{ post_item.posted | naturaltime }}</small></strong>
+          </div>
+
+
+          <div class="media-right">
+            <a href="{% url 'postlike' post_item.id %}"><i class="material-icons has-text-danger">favorite</i></a>
+            <p>{{ post_item.likes }} Likes</p>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
+{% endblock %}
