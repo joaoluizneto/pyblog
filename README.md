@@ -21,6 +21,7 @@ Esse projeto tem como objetivo o desenvolvimento de um website de blogs. Fizemos
 1. Crie um ambiente e o ative
 2. Instale os prerrequisitos
 3. Rode o servidor
+4. Alternativa via Docker
 
 ### Crie um ambiente e o ative
 
@@ -55,6 +56,16 @@ pip install -r requirements.txt
 python manage.py runserver
 
 ```
+
+---
+
+### Alternativa via Docker
+
+```bash
+docker build -t pyblog .
+docker run -d -p"9090:9090" pyblog 
+```
+
 
 ## Built With
 
