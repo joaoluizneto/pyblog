@@ -172,12 +172,12 @@ def follow(request, username, option):
 			f.delete()
 			Stream.objects.filter(following=following, user=request.user).all().delete()
 		else:
-			 posts = Post.objects.all().filter(user=following)[:25]
+			posts = Post.objects.all().filter(user=following)[:25]
 
-			 with transaction.atomic():
-			 	for post in posts:
-			 		stream = Stream(post=post, user=request.user, date=post.posted, following=following)
-			 		stream.save()
+			with transaction.atomic():
+				for post in posts:
+					stream = Stream(post=post, user=request.user, date=post.posted, following=following)
+					stream.save()
 
 		return HttpResponseRedirect(reverse('profile', args=[username]))
 	except User.DoesNotExist:
