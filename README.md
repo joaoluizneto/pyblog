@@ -25,7 +25,7 @@ Esse projeto tem como objetivo o desenvolvimento de um website de blogs. Fizemos
 ### Crie um ambiente e o ative
 
 ```bash
-python -m venv pyblog_en
+python -m venv pyblog_env
 ```
 
 No Linux (via bash)
