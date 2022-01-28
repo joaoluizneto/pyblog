@@ -1,37 +1,62 @@
 # PyBlog
 
-Esse projeto tem como objetivo documentar o desenvolvimento de um website de blogs.
 
-Para um melhor entendimento de como o framework django funciona:
+Esse projeto tem como objetivo o desenvolvimento de um website de blogs. Fizemos esse site de blogs inspirado no seguinte projeto de clone de instagram: [[https://github.com/byronlara5/django_instagram_clone_youtube](https://github.com/byronlara5/django_instagram_clone_youtube)]
+
+**Para um melhor entendimento de como o framework django funciona:**
 
 ![Untitled](README/Untitled.png)
- 
 
-## Getting Started
 
--Install the prerequisites
--Run the server
+**Planejamento da arquitetura:**
 
-### Prerequisites
+![Untitled](README/pyblog_logo.png)
 
-You can install the Prerequisites by running the command: 
+![Untitled](README/pyblog_architecture.png)
+
+---
+
+## Como Rodar
+
+1. Crie um ambiente e o ative
+2. Instale os prerrequisitos
+3. Rode o servidor
+
+### Crie um ambiente e o ative
+
+```bash
+python -m venv pyblog_en
+```
+
+No Linux (via bash)
+
+```bash
+source pyblog_env/bin/activate
 
 ```
+
+No Windows (via powershell)
+
+```
+.\pyblog_env\Scripts\Activate.ps1
+
+```
+
+### Instale os prerrequisitos
+
+```bash
 pip install -r requirements.txt
-```
 
 ```
-asgiref==3.2.10
-Django==3.0.7
-Pillow==7.1.2
-pkg-resources==0.0.0
-pytz==2020.1
-sqlparse==0.3.1
-celery==5.0.0
-django-celery-beat==2.0.0
+
+### Rode o servidor
+
+```bash
+python manage.py runserver
+
 ```
 
 ## Built With
 
-* [Bulma](https://bulma.io/) - Bulma is a free, open source CSS framework based on Flexbox
-* [Django](https://www.djangoproject.com/) - Web framework
+- [Bulma](https://bulma.io/) - Bulma is a free, open source CSS framework based on Flexbox
+- [Django](https://www.djangoproject.com/) - Web framework
