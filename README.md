@@ -1,6 +1,8 @@
 # PyBlog
 
 
+Link pra o teste: [http://storni.serveblog.net:9090/](http://storni.serveblog.net:9090/)
+
 Esse projeto tem como objetivo o desenvolvimento de um website de blogs. Fizemos esse site de blogs inspirado no seguinte projeto de clone de instagram: [[https://github.com/byronlara5/django_instagram_clone_youtube](https://github.com/byronlara5/django_instagram_clone_youtube)]
 
 **Para um melhor entendimento de como o framework django funciona:**
